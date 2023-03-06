@@ -24,7 +24,7 @@ if (!(firebase as any).apps.length) {
 
 
 
- const storage = firebase.storage();
+//  const storage = firebase.storage();
 
 const App: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
