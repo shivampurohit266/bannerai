@@ -1,22 +1,43 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "nodemon",
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && npm run start:client",
+    "start:client": "next dev",
+    "migrate": "npx prisma migrate dev"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.9",
+    "@prisma/client": "^4.11.0",
+    "apollo-server-express": "^3.11.1",
+    "express": "^4.18.2",
+    "firebase": "^9.17.2",
+    "graphql": "^16.6.0",
+    "html2canvas": "^1.4.1",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.2"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.12",
+    "nodemon": "^2.0.20",
     "postcss": "^8.4.18",
+    "prisma": "^4.11.0",
     "tailwindcss": "^3.2.4",
+    "ts-node": "^10.9.1",
     "typescript": "4.9.4"
+  },
+  "prisma": {
+    "schema": "src/prisma/schema.prisma"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }
